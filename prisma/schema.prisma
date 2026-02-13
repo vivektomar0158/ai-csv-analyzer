@@ -1,0 +1,15 @@
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "binary"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Report {
+  id        Int      @id @default(autoincrement())
+  filename  String
+  insights  String
+  timestamp DateTime @default(now())
+}
