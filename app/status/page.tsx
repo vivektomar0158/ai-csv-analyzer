@@ -93,7 +93,7 @@ export default function StatusPage() {
                     <div className="space-y-4">
                         <StatusItem name="Backend Server" isActive={status?.backend ?? false} icon={Server} />
                         <StatusItem
-                            name="Database (SQLite)"
+                            name="Database (PostgreSQL)"
                             isActive={status?.database ?? false}
                             icon={Database}
                             details={status?.databaseError}
