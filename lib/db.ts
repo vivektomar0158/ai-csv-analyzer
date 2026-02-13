@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client';
-import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
 
 type GlobalWithPrisma = typeof globalThis & {
   prisma?: PrismaClient;
@@ -16,12 +15,7 @@ export function getPrisma() {
   }
 
   if (!globalForPrisma.prisma) {
-    const adapter = new PrismaBetterSqlite3({
-      url: process.env.DATABASE_URL,
-    });
-
     globalForPrisma.prisma = new PrismaClient({
-      adapter,
       log: ['error', 'warn'],
     });
   }
